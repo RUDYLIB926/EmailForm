@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Adresses>
   <Address>
-    <NAME>Rudy</NAME>
-    <EMAIL>rlibertini3@gmail.com</EMAIL>
+    <NAME>name1</NAME>
+    <EMAIL>email1</EMAIL>
+  </Address>
+  <Address>
+    <NAME>name2</NAME>
+    <EMAIL>email2</EMAIL>
   </Address>
 </Adresses>
