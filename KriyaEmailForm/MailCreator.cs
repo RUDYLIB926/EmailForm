@@ -14,19 +14,20 @@ namespace KriyaEmailForm
         private string Message { get; set; }
         private string Subject { get; set; }
         public bool Stopped { get; set; } = false;
-        
-        public MailCreator(string addressFilePath, string subject, string body)
+        public IEnumerable<MailAddress> ToAddressList { get; set; }
+
+        public MailCreator(string addressFilePath, FileType fileType, string subject, string body)
         {
             Subject = subject;
             Message = body;
-            _addressParser = new XMLAddressParser(addressFilePath);
+            _addressParser = new XMLAddressParser(addressFilePath, fileType);
             Host = _addressParser.GetHostAddress();
         }
 
         public bool SendMail()
         {
-            List<MailAddress> toAddressList = getToAddresses();
-            return sendMail(toAddressList);
+            ToAddressList = getToAddresses();
+            return sendMail(ToAddressList);
         }
         private bool sendMail(IEnumerable<MailAddress> addresses)
         {

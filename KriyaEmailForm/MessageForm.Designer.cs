@@ -34,6 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.sendButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.addressListFileType = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // messageSubject
@@ -89,11 +91,32 @@
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 268);
+            this.label3.MaximumSize = new System.Drawing.Size(150, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 64);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Recipiant\'s File Type";
+            // 
+            // addressListFileType
+            // 
+            this.addressListFileType.FormattingEnabled = true;
+            this.addressListFileType.Location = new System.Drawing.Point(12, 356);
+            this.addressListFileType.Name = "addressListFileType";
+            this.addressListFileType.Size = new System.Drawing.Size(149, 40);
+            this.addressListFileType.TabIndex = 8;
+            this.addressListFileType.SelectedIndexChanged += new System.EventHandler(this.addressListFileType_SelectedIndexChanged);
+            // 
             // MessageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 571);
+            this.Controls.Add(this.addressListFileType);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.messageSubject);
@@ -114,5 +137,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button sendButton;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox addressListFileType;
     }
 }

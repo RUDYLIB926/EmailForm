@@ -6,8 +6,13 @@ namespace KriyaEmailForm
     internal class XMLAddressParser
     {
         XDocument _document;
-        public XMLAddressParser(string path)
+
+        public XMLAddressParser(string path, FileType fileType)
         {
+            if(fileType == FileType.CSV)
+            {
+                convertCSVToXML(); // overwrites AddressList.xml if it exists
+            }
             _document = XDocument.Load(path);
         }
         internal HostAddress GetHostAddress()
@@ -50,6 +55,46 @@ namespace KriyaEmailForm
             addresses.Add(GetHostAddress());
 
             return addresses;
+        }
+
+        private void convertCSVToXML()
+        {
+            string currentDirectory = System.IO.Directory.GetCurrentDirectory();
+            string addressesFilePath = currentDirectory + "/AddressList.csv";
+            string[] lines = System.IO.File.ReadAllLines(addressesFilePath);
+            XDocument document = new XDocument();
+            XElement root = new XElement("Addresses");
+            document.AddFirst(root);
+            foreach (var line in lines)
+            {
+                string[] lineWithoutComma = line.Split(',');
+                if (lineWithoutComma.Length == 6)
+                {
+                    XElement host = new XElement("Host");
+                    host.Add(new XElement("EMAIL", lineWithoutComma[0]));
+                    host.Add(new XElement("NAME", lineWithoutComma[1]));
+                    host.Add(new XElement("PASSWORD", lineWithoutComma[2]));
+                    host.Add(new XElement("ADDRESS", lineWithoutComma[3]));
+                    host.Add(new XElement("PORT", lineWithoutComma[4]));
+                    root.Add(host);
+                }
+                else
+                {
+                    XElement address = new XElement("Address");
+                    address.Add(new XElement("EMAIL", lineWithoutComma[0]));
+                    if (lineWithoutComma.Length > 1)
+                    {
+                        address.Add(new XElement("NAME", lineWithoutComma[1]));
+                    }
+                    root.Add(address);
+                }
+            }
+            var filePath = currentDirectory + "/AddressList.xml";
+            if (System.IO.File.Exists(filePath))
+            {
+                System.IO.File.Delete(filePath);
+            }
+            document.Save(filePath);
         }
     }
 }
