@@ -38,23 +38,23 @@
             // 
             // messageSubject
             // 
-            this.messageSubject.Location = new System.Drawing.Point(159, 22);
+            this.messageSubject.Location = new System.Drawing.Point(167, 33);
             this.messageSubject.Name = "messageSubject";
-            this.messageSubject.Size = new System.Drawing.Size(714, 39);
+            this.messageSubject.Size = new System.Drawing.Size(689, 39);
             this.messageSubject.TabIndex = 1;
             // 
             // messageBody
             // 
-            this.messageBody.Location = new System.Drawing.Point(159, 94);
+            this.messageBody.Location = new System.Drawing.Point(167, 95);
             this.messageBody.Name = "messageBody";
-            this.messageBody.Size = new System.Drawing.Size(713, 365);
+            this.messageBody.Size = new System.Drawing.Size(689, 365);
             this.messageBody.TabIndex = 2;
             this.messageBody.Text = "";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 25);
+            this.label1.Location = new System.Drawing.Point(27, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 32);
             this.label1.TabIndex = 3;
@@ -63,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 97);
+            this.label2.Location = new System.Drawing.Point(27, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 32);
             this.label2.TabIndex = 4;
@@ -71,7 +71,7 @@
             // 
             // sendButton
             // 
-            this.sendButton.Location = new System.Drawing.Point(394, 484);
+            this.sendButton.Location = new System.Drawing.Point(254, 481);
             this.sendButton.Name = "sendButton";
             this.sendButton.Size = new System.Drawing.Size(225, 63);
             this.sendButton.TabIndex = 5;
@@ -81,7 +81,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(647, 484);
+            this.clearButton.Location = new System.Drawing.Point(548, 481);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(225, 63);
             this.clearButton.TabIndex = 6;
@@ -93,15 +93,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 559);
-            this.Controls.Add(this.sendButton);
+            this.ClientSize = new System.Drawing.Size(902, 571);
             this.Controls.Add(this.clearButton);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.messageBody);
+            this.Controls.Add(this.sendButton);
             this.Controls.Add(this.messageSubject);
+            this.Controls.Add(this.messageBody);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Name = "MessageForm";
-            this.Text = "MessageForm";
+            this.Text = "EmailForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

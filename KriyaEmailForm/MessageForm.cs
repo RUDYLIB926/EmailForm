@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace KriyaEmailForm
@@ -21,7 +22,9 @@ namespace KriyaEmailForm
             {
                 sendButton.Enabled = false;
                 sendButton.BackColor = Color.DarkGreen;
-                _mail = new MailCreator(messageSubject.Text, messageBody.Text);
+                string currentDirectory = Directory.GetCurrentDirectory();
+                string addressesFilePath = currentDirectory + "/AddressList.xml";
+                _mail = new MailCreator(addressesFilePath, messageSubject.Text, messageBody.Text);
                 bool sent = _mail.SendMail();
                 if (sent)
                 {

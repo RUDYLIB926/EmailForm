@@ -8,4 +8,11 @@
     <NAME>name2</NAME>
     <EMAIL>email2</EMAIL>
   </Address>
+  <Host>
+    <NAME>hostName</NAME>
+    <EMAIL>hostEmail</EMAIL>
+    <PASSWORD>passowrd</PASSWORD>
+    <ADDRESS>smtp.gmail.com</ADDRESS>
+    <PORT>587</PORT>
+  </Host>
 </Adresses>
