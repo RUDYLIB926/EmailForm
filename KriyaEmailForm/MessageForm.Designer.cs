@@ -36,6 +36,8 @@
             this.clearButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.addressListFileType = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.addressFile = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // messageSubject
@@ -94,29 +96,50 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 268);
+            this.label3.Location = new System.Drawing.Point(12, 353);
             this.label3.MaximumSize = new System.Drawing.Size(150, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 64);
+            this.label3.Size = new System.Drawing.Size(135, 64);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Recipiant\'s File Type";
+            this.label3.Text = "Recipients\' File Type";
             // 
             // addressListFileType
             // 
             this.addressListFileType.FormattingEnabled = true;
-            this.addressListFileType.Location = new System.Drawing.Point(12, 356);
+            this.addressListFileType.Location = new System.Drawing.Point(12, 420);
             this.addressListFileType.Name = "addressListFileType";
             this.addressListFileType.Size = new System.Drawing.Size(149, 40);
             this.addressListFileType.TabIndex = 8;
             this.addressListFileType.SelectedIndexChanged += new System.EventHandler(this.addressListFileType_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 212);
+            this.label4.MaximumSize = new System.Drawing.Size(150, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(129, 64);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Recipients File";
+            // 
+            // addressFile
+            // 
+            this.addressFile.FormattingEnabled = true;
+            this.addressFile.Location = new System.Drawing.Point(12, 279);
+            this.addressFile.Name = "addressFile";
+            this.addressFile.Size = new System.Drawing.Size(149, 40);
+            this.addressFile.TabIndex = 10;
+            this.addressFile.SelectedIndexChanged += new System.EventHandler(this.addressFile_SelectedIndexChanged);
             // 
             // MessageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 571);
-            this.Controls.Add(this.addressListFileType);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.addressFile);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.addressListFileType);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.messageSubject);
@@ -139,5 +162,7 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox addressListFileType;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox addressFile;
     }
 }

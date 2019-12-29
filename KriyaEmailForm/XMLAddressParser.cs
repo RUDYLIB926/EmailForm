@@ -7,9 +7,9 @@ namespace KriyaEmailForm
     {
         XDocument _document;
 
-        public XMLAddressParser(string path, FileType fileType)
+        public XMLAddressParser(string path, Enumerators.FileType fileType)
         {
-            if(fileType == FileType.CSV)
+            if(fileType == Enumerators.FileType.CSV)
             {
                 convertCSVToXML(); // overwrites AddressList.xml if it exists
             }
@@ -68,7 +68,7 @@ namespace KriyaEmailForm
             foreach (var line in lines)
             {
                 string[] lineWithoutComma = line.Split(',');
-                if (lineWithoutComma.Length == 6)
+                if (lineWithoutComma[2] != "")
                 {
                     XElement host = new XElement("Host");
                     host.Add(new XElement("EMAIL", lineWithoutComma[0]));

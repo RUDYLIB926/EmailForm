@@ -8,15 +8,20 @@ namespace KriyaEmailForm
     public partial class MessageForm : Form
     {
         MailCreator _mail;
-        FileType _selectedFileType;
+        Enumerators.FileType _selectedFileType;
+        Enumerators.File _selectedFile;
 
         public MessageForm()
         {
             InitializeComponent();
-            addressListFileType.Items.Add(FileType.XML);
-            addressListFileType.Items.Add(FileType.CSV);
+            addressListFileType.Items.Add(Enumerators.FileType.XML);
+            addressListFileType.Items.Add(Enumerators.FileType.CSV);
             addressListFileType.SelectedIndex = 0;
-            _selectedFileType = FileType.XML;
+            _selectedFileType = Enumerators.FileType.XML;
+            addressFile.Items.Add(Enumerators.File.AddressList);
+            addressFile.Items.Add(Enumerators.File.Admins);
+            addressFile.SelectedIndex = 0;
+            _selectedFile = Enumerators.File.AddressList;
             sendButton.BackColor = Color.Green;
             clearButton.BackColor = Color.Yellow;
         }
@@ -28,7 +33,12 @@ namespace KriyaEmailForm
                 sendButton.Enabled = false;
                 sendButton.BackColor = Color.DarkGreen;
                 string currentDirectory = Directory.GetCurrentDirectory();
-                string addressesFilePath = currentDirectory + "/AddressList.xml";
+                string file = "/AddressList.xml";
+                if(_selectedFile == Enumerators.File.Admins)
+                {
+                    file = "/Admins.xml";
+                }
+                string addressesFilePath = currentDirectory + file;
                 _mail = new MailCreator(addressesFilePath, _selectedFileType, messageSubject.Text, messageBody.Text);
                 bool sent = _mail.SendMail();
                 if (sent)
@@ -74,7 +84,22 @@ namespace KriyaEmailForm
 
         private void addressListFileType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _selectedFileType = (FileType)addressListFileType.SelectedIndex;
+            _selectedFileType = (Enumerators.FileType)addressListFileType.SelectedIndex;
+        }
+
+        private void addressFile_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedFile = (Enumerators.File)addressFile.SelectedIndex;
+            if(_selectedFile == Enumerators.File.Admins)
+            {
+                _selectedFileType = Enumerators.FileType.XML;
+                addressListFileType.Enabled = false;
+                addressListFileType.SelectedIndex = 0;
+            }
+            else
+            {
+                addressListFileType.Enabled = true;
+            }
         }
     }
 }

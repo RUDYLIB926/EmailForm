@@ -16,7 +16,7 @@ namespace KriyaEmailForm
         public bool Stopped { get; set; } = false;
         public IEnumerable<MailAddress> ToAddressList { get; set; }
 
-        public MailCreator(string addressFilePath, FileType fileType, string subject, string body)
+        public MailCreator(string addressFilePath, Enumerators.FileType fileType, string subject, string body)
         {
             Subject = subject;
             Message = body;
